@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+   
+   <style>
+       .combo
+       {
+           width: 1000px;
+           height: 300px;
+           padding: 10px;
+          
+       }
+    #id1
+    {
+        width: 400px;
+        float: left;
+        padding: 10px;
+        
+    }
+   .combo1
+   {
+width: 1000px;height: 300px;
+padding: 10px;
+   }
+   #cart1
+   {
+    width: 400px;
+        float: left;
+        padding: 10px;  
+   }
+</style>
+<script>
+    
+function doShow()
+{
+    var books= document.getElementById("types");
+    var price= document.getElementById("types1");
+
+    var menu = ["C", "C++", "Web Dev", "Real Java"];
+    var lprize=["400","600","699","799"];
+
+    var menu1=["Asus","HP","Dell","Lenovo"];
+    var lprize1=["53000","65000","49000","62000"];
+
+    var l=document.querySelector("#items");
+    books.length=0;
+    price.length=0;
+    if(l.selectedIndex==1)
+    {
+        for (i = 0; i < menu.length; i++) {
+            var opt = document.createElement("option");
+            opt.text = menu[i];
+            opt.value = menu[i];
+            books.append(opt);
+            var opt1 = document.createElement("option");
+            opt1.text = lprize[i];
+            opt1.value = lprize[i];
+            price.append(opt1);
+        }
+    }
+    else if (l.selectedIndex==2) {
+        for (i = 0; i < menu1.length; i++) {
+            var opt = document.createElement("option");
+            opt.text = menu1[i];
+            opt.value = menu1[i];
+            books.append(opt);
+            var opt1 = document.createElement("option");
+            opt1.text = lprize1[i];
+            opt1.value = lprize1[i];
+            price.append(opt1);
+        }
+
+    }
+}
+function selectypes() {
+    var a = document.getElementById("types");
+    var b = document.getElementById("Selitems");
+    var c = document.getElementById("types1");
+
+    var aa =types1[types.selectedIndex].value;
+    var d = document.getElementById("Valitems");
+
+
+    var opt = document.createElement("option");
+
+    opt.text = a.value;
+    opt.value = a.value;
+
+    var opt1 = document.createElement("option");
+
+    opt1.text = aa;
+    opt1.value = aa;
+    b.append(opt);
+    d.append(opt1);
+}
+
+function showBill(ref) {
+   var al = 0;
+for (var i = 0; i < ref.length; i++) {
+
+        c1 = ref[i].value;
+        al = al+parseInt(c1);
+    }
+    
+    document.getElementById("txt").value =  al;
+}
+
+
+</script>
+
+</head>
+<body>
+    <center>
+        <h2>List-Combo Assignment</h2>
+        <br><br><br>
+        Category Of Items: <select  id="items"  onchange="doShow();">
+            <option value="none">Select</option>
+        <option value="Books">Books</option>
+        <option value="Laptops">Laptops</option>
+       
+ </select>
+ <br><br>
+ <div class="combo">
+ <div id="id1">
+
+     <h3>Types:</h3>
+     <select  id="types" size="4" ondblclick="selectypes();">
+        <option value="none">Different Types:</option> </select>
+   
+
+</div>
+
+<div id="id1">
+<h3>Prices In Rs:</h3>
+<select  id="types1" size="4" >
+   <option value="none">Prices In Rs:</option>
+
+</select>
+</div>
+<br><br><br>
+ <div class="combo1">
+     <div id="cart1">
+        <h4>Cart</h4>
+        <select  id="Selitems" size="4" >
+            <option value="none"></option>
+
+        </select>
+     </div>
+     <div id="cart1">
+        <h4>Value Of Selected Items:</h4>
+        <select  id="Valitems" size="4" >
+            <option value="0"></option>
+            
+
+        </select>
+     </div>
+     <div id="cart1">
+        
+    <br><br> <input type="button" value="Bill" id="btn" onclick="showBill(Valitems)">
+        <input type="text" id="txt">
+        <div id="menu"></div>
+     </div>
+ </div>
+
+
+    </center>
+    
+</body>
+</html>
